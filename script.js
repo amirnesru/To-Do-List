@@ -4,7 +4,7 @@ let taskList = document.getElementById("taskList");
 let error = document.getElementById("errorMsg");
 let count =  document.getElementById("remainingCount")
 let counter = 0
-
+let arr = []
 
 
 
@@ -14,6 +14,12 @@ Add.addEventListener("click", function () {
     } 
     else {
         error.textContent = "";
+
+        let obj = {
+            text:taskInput.value ,
+            done:false
+        }
+        arr.push(obj)
 
         counter +=1
         count.textContent = counter
@@ -49,6 +55,7 @@ Add.addEventListener("click", function () {
             } else {
                 counter += 1;
             }
+            obj.done = isDone
 
             count.textContent = counter;
         });
@@ -59,8 +66,12 @@ Add.addEventListener("click", function () {
                 counter -=1
                 count.textContent = counter
             }
+            arr = arr.filter(item => item !== obj);
+
             li.remove();
         })
+
+        
     }
 
     taskInput.value = "";
