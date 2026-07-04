@@ -2,6 +2,10 @@ let Add = document.getElementById("addBtn");
 let taskInput = document.getElementById("taskInput");
 let taskList = document.getElementById("taskList");
 let error = document.getElementById("errorMsg");
+let count =  document.getElementById("remainingCount")
+let counter = 0
+
+
 
 
 Add.addEventListener("click", function () {
@@ -10,6 +14,9 @@ Add.addEventListener("click", function () {
     } 
     else {
         error.textContent = "";
+
+        counter +=1
+        count.textContent = counter
 
         let li = document.createElement("li");
 
@@ -33,13 +40,26 @@ Add.addEventListener("click", function () {
 
         taskList.appendChild(li);
 
-        btn.addEventListener ("click", function() {
+        btn.addEventListener("click", function () {
             li.classList.toggle("done");
-        })
 
-        deleteBtn.addEventListener ("click", function (){
-            li.remove();
+            const isDone = li.classList.contains("done");
+            if (isDone) {
+                counter -= 1;
+            } else {
+                counter += 1;
+            }
+
+            count.textContent = counter;
+        });
             
+        deleteBtn.addEventListener ("click", function (){
+            const isDone = li.classList.contains("done");
+            if (isDone === false) {
+                counter -=1
+                count.textContent = counter
+            }
+            li.remove();
         })
     }
 
