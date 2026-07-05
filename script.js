@@ -7,6 +7,9 @@ let remaining = document.getElementById("counter")
 let counter = 0
 let arr = []
 let clear = document.getElementById("clearBtn")
+let colors = document.querySelectorAll(".color-circle")
+
+
 let doneCounter = document.createElement("p")
 doneCounter.classList = "doneCounter"
 doneCounter.textContent = "0 of 0 tasks completed";
@@ -117,7 +120,15 @@ clear.addEventListener ("click", function(){
     counter = 0
     count.textContent = counter
     updateDoneCounter()
+})
 
 
+colors.forEach(circle => {
+    circle.addEventListener("click", function () {
+        let selectedColor = circle.dataset.color;
+        document.body.style.backgroundColor = selectedColor;
 
- })
+        colors.forEach(c => c.classList.remove("active"));
+        circle.classList.add("active");
+    });
+});
