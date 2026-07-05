@@ -5,6 +5,7 @@ let error = document.getElementById("errorMsg");
 let count =  document.getElementById("remainingCount")
 let counter = 0
 let arr = []
+let clear = document.getElementById("clearBtn")
 
 
 
@@ -13,16 +14,8 @@ Add.addEventListener("click", function () {
         error.textContent = "Please type a task first";
     } 
     else {
+        let obj = {}
         error.textContent = "";
-
-        let obj = {
-            text:taskInput.value ,
-            done:false
-        }
-        arr.push(obj)
-
-        counter +=1
-        count.textContent = counter
 
         let li = document.createElement("li");
 
@@ -43,9 +36,20 @@ Add.addEventListener("click", function () {
         li.appendChild(span);
         li.appendChild(btn);
         li.appendChild(deleteBtn)
-
-        taskList.appendChild(li);
-
+        if ( arr.some(arr => arr.text === taskInput.value)){
+            error.textContent = "This task already exists";
+            return ;
+        }
+        else {
+            taskList.appendChild(li);
+            counter +=1
+            count.textContent = counter
+            obj = {
+                text:taskInput.value ,
+                done:false
+            }
+            arr.push(obj)
+        }    
         btn.addEventListener("click", function () {
             li.classList.toggle("done");
 
@@ -76,3 +80,11 @@ Add.addEventListener("click", function () {
 
     taskInput.value = "";
 });
+
+clear.addEventListener ("click", function(){
+    taskList.replaceChildren()
+    arr = []
+
+
+
+ })
