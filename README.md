@@ -79,5 +79,4 @@ This project helps practice:
 
 This project is open-source and free to use.
 
-```
 
