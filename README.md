@@ -31,7 +31,6 @@ It allows users to add tasks, mark them as completed, delete tasks, track progre
 - CSS3
 - Vanilla JavaScript (ES6)
 
----
 
 ## 📂 Project Structure
 
@@ -43,7 +42,6 @@ project-folder/
 └── screenshots/
     └── To-Do-list.png
 
----
 
 ## 📌 How It Works
 
