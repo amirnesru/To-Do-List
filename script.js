@@ -24,7 +24,7 @@ function updateDoneCounter() {
 
     if (arr.length === 0) {
         doneCounter.textContent = "0 of 0 tasks completed";
-        doneCounter.classList.remove("all-done-msg");b3
+        doneCounter.classList.remove("all-done-msg");
         return;
     }
 
