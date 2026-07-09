@@ -34,6 +34,7 @@ It allows users to add tasks, mark them as completed, delete tasks, track progre
 
 ## 📂 Project Structure
 
+```text
 project-folder/
 │
 ├── index.html
@@ -41,6 +42,7 @@ project-folder/
 ├── script.js
 └── screenshots/
     └── To-Do-list.png
+```
 
 
 ## 📌 How It Works
